@@ -1,0 +1,446 @@
+/* ===== Design tokens ===== */
+:root {
+  --primary: #52634b;
+  --primary-dark: #3c4937;
+  --secondary: #eee4d6;
+  --background: #faf7f2;
+  --surface: #ffffff;
+  --text: #352f29;
+  --muted: #655d54;
+  --border: #ddd4c8;
+
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: Arial, Helvetica, sans-serif;
+
+  --text-h1: 2.5rem;
+  --text-h2: 1.875rem;
+  --text-h3: 1.375rem;
+  --text-body: 1rem;
+}
+
+/* ===== Basic reset ===== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+p,
+dl {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: var(--text-h1);
+}
+
+h2 {
+  font-size: var(--text-h2);
+}
+
+h3 {
+  font-size: var(--text-h3);
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 5px;
+}
+
+section,
+article,
+footer,
+h2 {
+  scroll-margin-top: 24px;
+}
+
+/* ===== Header: Flexbox ===== */
+.site-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--surface);
+}
+
+.logo {
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+}
+
+.nav-links,
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-links a,
+.footer-links a {
+  text-decoration: none;
+}
+
+.nav-links a:hover,
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Page container ===== */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+}
+
+/* ===== Hero: mobile-first single-column Grid ===== */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.hero-grid > *,
+.cards-gallery > * {
+  min-width: 0;
+}
+
+.hero-spotlight,
+.hero-sidebar {
+  padding: 28px;
+  border-radius: 16px;
+}
+
+.hero-spotlight {
+  background-color: var(--secondary);
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-spotlight h1 {
+  max-width: 16ch;
+  margin-bottom: 20px;
+}
+
+.hero-spotlight > p:not(.eyebrow) {
+  max-width: 55ch;
+  margin-bottom: 28px;
+  color: var(--muted);
+}
+
+.hero-sidebar {
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+}
+
+.hero-sidebar h2 {
+  margin-bottom: 24px;
+}
+
+.session-details {
+  margin-bottom: 20px;
+}
+
+.session-details dt {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.session-details dd {
+  margin: 0;
+  color: var(--muted);
+}
+
+.hero-sidebar > p:not(.eyebrow) {
+  margin-bottom: 20px;
+  color: var(--muted);
+}
+
+.text-link {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* ===== Shared button styles ===== */
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 44px;
+  padding: 12px 20px;
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  font-weight: bold;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button-primary {
+  background-color: var(--primary);
+  color: var(--surface);
+}
+
+.button-primary:hover {
+  border-color: var(--primary-dark);
+  background-color: var(--primary-dark);
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: var(--primary);
+}
+
+.button-secondary:hover {
+  background-color: var(--primary);
+  color: var(--surface);
+}
+
+/* ===== Workshop section ===== */
+.workshops-section {
+  margin-top: 56px;
+}
+
+.section-heading {
+  margin-bottom: 28px;
+}
+
+.section-heading h2 {
+  margin-bottom: 12px;
+}
+
+.section-heading > p:not(.eyebrow) {
+  color: var(--muted);
+}
+
+/* Single-column gallery below 768px */
+.cards-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* ===== Cards: vertical Flexbox ===== */
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background-color: var(--surface);
+}
+
+.image-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 180px;
+  margin-bottom: 24px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--secondary);
+  color: var(--muted);
+  text-align: center;
+}
+
+.card-category {
+  margin-bottom: 10px;
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  margin-bottom: 14px;
+}
+
+.card > p:not(.card-category) {
+  margin-bottom: 20px;
+  color: var(--muted);
+}
+
+.card .card-meta {
+  font-size: 0.875rem;
+}
+
+/* Push each button to the bottom of its card */
+.card .button {
+  margin-top: auto;
+}
+
+/* ===== Footer: Flexbox ===== */
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 32px 24px;
+  border-top: 1px solid var(--border);
+  background-color: var(--secondary);
+  text-align: center;
+}
+
+.footer-brand {
+  margin-bottom: 8px;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.demo-note {
+  max-width: 45ch;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* ===== Desktop layouts: 768px and wider ===== */
+@media (min-width: 768px) {
+  :root {
+    --text-h1: 3.5rem;
+    --text-h2: 2rem;
+    --text-h3: 1.5rem;
+  }
+
+  .site-header {
+    flex-direction: row;
+    padding: 24px max(40px, calc((100% - 1280px) / 2));
+  }
+
+  .logo {
+    text-align: left;
+  }
+
+  .container {
+    padding: 48px 80px 64px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .hero-spotlight,
+  .hero-sidebar {
+    padding: 32px;
+  }
+
+  .hero-spotlight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .cards-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .site-footer {
+    flex-direction: row;
+    padding: 32px max(40px, calc((100% - 1280px) / 2));
+    text-align: left;
+  }
+}
+/* Sage green header with cream text */
+.site-header {
+  background-color: #64765d;
+  color: #fff8ec;
+  border-bottom-color: #64765d;
+}
+
+.site-header .logo,
+.site-header .nav-links a {
+  color: #fff8ec;
+}
+
+.site-header a:focus-visible {
+  outline-color: #fff8ec;
+}
+.workshop-image {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+
+.image-credits {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}
+
+.image-credits h2 {
+  margin-bottom: 16px;
+  color: var(--text);
+  font-size: 1.25rem;
+}
+
+.image-credits ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.image-credits li + li {
+  margin-top: 16px;
+}
+
+.image-credits a {
+  color: var(--primary);
+}
